@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Navigation from "../components/Navigation";
-import MainPage from "../components/MainPage";
 import Nav from "../components/Nav";
 import Coffee from "../components/Coffee";
 import Featured from "../components/Featured";
@@ -16,8 +14,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Navigation />
-      <MainPage /> */}
       <Nav />
       <Coffee />
       <Featured />

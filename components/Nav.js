@@ -19,8 +19,10 @@ export default function Nav() {
         <div className={styles.menuContainer}>
           {menu.map((item, index) => {
             return (
-              <div key={`nav-item-${index}`} className={styles.item}>
-                <a href="#">{item}</a>
+              <div key={`nav-items-${index}-${item}`} className={styles.item}>
+                <a href="#" key={`nav-item-${index}-${item}`}>
+                  {item}
+                </a>
               </div>
             );
           })}
@@ -42,11 +44,13 @@ export default function Nav() {
               {menu.map((item, index) => {
                 return (
                   <div
-                    key={`nav-item-${index}`}
+                    key={`nav-items-mobile-${index}-${item}`}
                     onClick={cycleOpen}
                     className={styles.item}
                   >
-                    <a href="#">{item}</a>
+                    <a href="#" key={`nav-item-mobile-${index}-${item}`}>
+                      {item}
+                    </a>
                   </div>
                 );
               })}
