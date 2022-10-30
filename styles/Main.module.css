@@ -1,0 +1,89 @@
+.main {
+  margin-top: -5rem;
+  z-index: 999;
+}
+
+.container {
+  max-width: 80%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20rem;
+}
+
+.details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsText {
+  font-size: 5rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.detailsDesc {
+  font-size: 1.2rem;
+  color: rgb(36, 36, 36);
+}
+
+.detailsLink {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  width: max-content;
+}
+
+.picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pick {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.image {
+  z-index: 5;
+}
+
+.image img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+  .gridContainer {
+    gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .gridContainer {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .main {
+    margin-top: 0;
+    padding-bottom: 2rem;
+  }
+}

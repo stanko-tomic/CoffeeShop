@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-inline: 5rem;
+  background-image: url("/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 8rem;
+}
+
+.menuContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 5;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .menuContainer {
+    display: none;
+  }
+  .mobileMenu {
+    display: flex;
+  }
+}
