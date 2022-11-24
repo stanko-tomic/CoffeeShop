@@ -2,8 +2,26 @@ import styles from "../styles/Nav.module.css";
 import { motion, useCycle } from "framer-motion";
 import { BiMenuAltRight } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
+import Link from "next/link";
 
-const menu = ["Home", "What's New", "Menu", "Contact"];
+const menu = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "What's New",
+    link: "/new",
+  },
+  {
+    name: "Menu",
+    link: "/menu",
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+  },
+];
 
 export default function Nav() {
   const [open, cycleOpen] = useCycle(false, true);
@@ -20,9 +38,9 @@ export default function Nav() {
           {menu.map((item, index) => {
             return (
               <div key={`nav-items-${index}-${item}`} className={styles.item}>
-                <a href="#" key={`nav-item-${index}-${item}`}>
-                  {item}
-                </a>
+                <Link href={item.link} key={`nav-item-${index}-${item.name}`}>
+                  {item.name}
+                </Link>
               </div>
             );
           })}
@@ -44,13 +62,16 @@ export default function Nav() {
               {menu.map((item, index) => {
                 return (
                   <div
-                    key={`nav-items-mobile-${index}-${item}`}
+                    key={`nav-items-mobile-${index}-${item.name}`}
                     onClick={cycleOpen}
                     className={styles.item}
                   >
-                    <a href="#" key={`nav-item-mobile-${index}-${item}`}>
-                      {item}
-                    </a>
+                    <Link
+                      href={item.link}
+                      key={`nav-item-mobile-${index}-${item}`}
+                    >
+                      {item.name}
+                    </Link>
                   </div>
                 );
               })}

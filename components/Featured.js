@@ -1,27 +1,35 @@
+import Link from "next/link";
 import styles from "../styles/Featured.module.css";
-import { FiCoffee } from "react-icons/fi";
-import { GiDonut } from "react-icons/gi";
-import { BiCookie } from "react-icons/bi";
+
+import { getAllCoffee } from "../lib/coffeedata";
+import { useEffect, useState } from "react";
+import { BsCart2 } from "react-icons/bs";
 
 export default function Featured() {
+  const [coffeeData, setCoffeeData] = useState([]);
+
+  useEffect(() => {
+    setCoffeeData(getAllCoffee);
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.gridContainer}>
-        <div className={styles.middle}>
-          <img src="/testcup.png" alt="" />
-          <h4>Caramel Frappuccino</h4>
-          <a href="">Order it</a>
-        </div>
-        <div className={styles.middle}>
-          <img src="/testcup.png" alt="" />
-          <h4>Caramel Frappuccino</h4>
-          <a href="">Order it</a>
-        </div>
-        <div className={styles.middle}>
-          <img src="/testcup.png" alt="" />
-          <h4>Caramel Frappuccino</h4>
-          <a href="">Order it</a>
-        </div>
+        {coffeeData.map((coffee) => {
+          return (
+            <Link
+              key={`${coffee.id}-${coffee.slug}`}
+              href={`/coffee/${coffee.slug}`}
+              className={styles.middle}
+            >
+              <img src={coffee.coverImage} alt="" />
+              <h4>{coffee.title}</h4>
+              <p className={styles.linkText}>
+                Order it <BsCart2 />
+              </p>
+            </Link>
+          );
+        })}
       </div>
     </main>
   );

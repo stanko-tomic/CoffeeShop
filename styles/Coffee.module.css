@@ -20,10 +20,15 @@
   align-items: center;
 }
 
+.middle {
+  position: relative;
+}
+
 .middle img {
   max-width: 100%;
   -webkit-filter: drop-shadow(5px 5px 45px rgba(34, 34, 34, 0.418));
   filter: drop-shadow(5px 5px 45px rgba(34, 34, 34, 0.418));
+  position: relative !important;
 }
 
 .left h1 {
