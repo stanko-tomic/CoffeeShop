@@ -1,17 +1,14 @@
 import { getAllSlugs, getPostData } from "../../lib/coffeedata";
-import Link from "next/link";
 import Coffee from "../../components/Coffee";
-import Nav from "../../components/Nav";
 import { AnimatePresence } from "framer-motion";
 import Featured from "../../components/Featured";
 
 export default function CoffeePreview({ postData }) {
   return (
     <div>
-      <Nav />
       <AnimatePresence
         initial={false}
-        exitBeforeEnter
+        mode="wait"
         onExitComplete={() => window.scrollTo(0, 0)}
       >
         <Coffee data={postData} />
