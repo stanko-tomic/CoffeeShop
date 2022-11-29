@@ -26,9 +26,13 @@
 
 .middle img {
   max-width: 100%;
-  -webkit-filter: drop-shadow(5px 5px 45px rgba(34, 34, 34, 0.418));
-  filter: drop-shadow(5px 5px 45px rgba(34, 34, 34, 0.418));
+  /* -webkit-filter: drop-shadow(5px 5px 45px rgba(34, 34, 34, 0.418)); */
+  /* filter: drop-shadow(5px 5px 45px rgba(34, 34, 34, 0.418)); */
+  /* position: relative !important; */
+  object-fit: contain;
+  width: 100% !important;
   position: relative !important;
+  height: unset !important;
 }
 
 .left h1 {

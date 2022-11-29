@@ -29,7 +29,7 @@ export default function Nav() {
     <nav>
       <div className={styles.container}>
         <div className={styles.logoContainer}>
-          <h1 className={styles.logo}>Logo</h1>
+          <img src="logo.svg" alt="" />
           <div className={styles.mobileHamburger}>
             <BiMenuAltRight onClick={cycleOpen} />
           </div>
@@ -55,7 +55,9 @@ export default function Nav() {
         >
           <div className={styles.mobileMenuContainer}>
             <div className={styles.close}>
-              <h1 className={styles.logo}>Logo</h1>
+              <div>
+                <img src="logo.svg" alt="" />
+              </div>
               <IoClose onClick={cycleOpen} />
             </div>
             <div className={styles.mobileItems}>
