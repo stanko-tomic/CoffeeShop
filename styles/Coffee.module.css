@@ -22,6 +22,8 @@
 
 .middle {
   position: relative;
+  min-width: 300px;
+  min-height: 300px;
 }
 
 .middle img {
