@@ -162,7 +162,7 @@
 }
 
 @media (min-width: 768px) {
-  .button-56 {
+  .button56 {
     padding: 0 40px;
   }
 }
@@ -219,6 +219,10 @@
   .feature:nth-child(2) {
     margin-left: 0;
     padding-top: 5rem;
+  }
+  .button56 {
+    margin-inline: auto;
+    margin-bottom: 1.3rem;
   }
 }
 

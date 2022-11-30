@@ -62,11 +62,7 @@ export default function Coffee({ data }) {
               </h1>
               <p>{coffee.content}</p>
               <h4 className={styles.price}>{coffee.price} KM</h4>
-              <button
-                className={styles.button56}
-                class="button-56"
-                role="button"
-              >
+              <button className={styles.button56} role="button">
                 Kupi odmah
               </button>
             </div>
