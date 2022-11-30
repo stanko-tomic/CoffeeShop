@@ -1,6 +1,4 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Nav from "../components/Nav";
 import Coffee from "../components/Coffee";
 import Featured from "../components/Featured";
 
