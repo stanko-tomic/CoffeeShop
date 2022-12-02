@@ -2,7 +2,7 @@ import styles from "../styles/Coffee.module.css";
 import { FiCoffee } from "react-icons/fi";
 import { GiDonut } from "react-icons/gi";
 import { BiCookie } from "react-icons/bi";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -46,74 +46,91 @@ export default function Coffee({ data }) {
     return <></>;
   } else {
     return (
-      <motion.main
-        variants={variants} // Pass the variant object into Framer Motion
-        initial="hidden" // Set the initial state to variants.hidden
-        animate="enter" // Animated state to variants.enter
-        transition={{ type: "linear" }}
-        className={styles.main}
-      >
-        <div className={styles.container}>
-          <div className={styles.gridContainer}>
-            <div className={styles.left}>
-              <h1>
-                {/* Midnight <span className="block">Frappucino</span> */}
-                {coffee.title}
-              </h1>
-              <p>{coffee.content}</p>
-              <h4 className={styles.price}>{coffee.price} KM</h4>
-              <button className={styles.button56} role="button">
-                Kupi odmah
-              </button>
-            </div>
-            <div className={styles.middle}>
-              {/* <img src="/testcup.png" alt="" /> */}
-              <Image
-                src={coffee.coverImage}
-                alt="Coffe cup"
-                fill
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  convertImage(1, 1)
-                )}`}
-              />
-            </div>
-            <div className={styles.right}>
-              {}
-              <div className={styles.feature}>
-                <div className={styles.imgFeature}>
-                  <FiCoffee />
+      <AnimatePresence>
+        <motion.main
+          variants={variants} // Pass the variant object into Framer Motion
+          initial="hidden" // Set the initial state to variants.hidden
+          animate="enter" // Animated state to variants.enter
+          transition={{ type: "linear" }}
+          className={styles.main}
+        >
+          <div className={styles.container}>
+            <div className={styles.gridContainer}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className={styles.left}
+              >
+                <h1>
+                  {/* Midnight <span className="block">Frappucino</span> */}
+                  {coffee.title}
+                </h1>
+                <p>{coffee.content}</p>
+                <h4 className={styles.price}>{coffee.price} KM</h4>
+                <button className={styles.button56} role="button">
+                  Kupi odmah
+                </button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className={styles.middle}
+              >
+                {/* <img src="/testcup.png" alt="" /> */}
+                <Image
+                  src={coffee.coverImage}
+                  alt="Coffe cup"
+                  fill
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    convertImage(1, 1)
+                  )}`}
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className={styles.right}
+              >
+                {}
+                <div className={styles.feature}>
+                  <div className={styles.imgFeature}>
+                    <FiCoffee />
+                  </div>
+                  <div className={styles.featureText}>
+                    <h5>{coffee.featureOne?.title}</h5>
+                    <p>{coffee.featureOne?.desc}</p>
+                  </div>
                 </div>
-                <div className={styles.featureText}>
-                  <h5>{coffee.featureOne?.title}</h5>
-                  <p>{coffee.featureOne?.desc}</p>
+                {}
+                <div className={styles.feature}>
+                  <div className={styles.imgFeature}>
+                    <GiDonut />
+                  </div>
+                  <div className={styles.featureText}>
+                    <h5>{coffee.featureTwo?.title}</h5>
+                    <p>{coffee.featureTwo?.desc}</p>
+                  </div>
                 </div>
-              </div>
-              {}
-              <div className={styles.feature}>
-                <div className={styles.imgFeature}>
-                  <GiDonut />
+                {}
+                <div className={styles.feature}>
+                  <div className={styles.imgFeature}>
+                    <BiCookie />
+                  </div>
+                  <div className={styles.featureText}>
+                    <h5>{coffee.featureThree?.title}</h5>
+                    <p>{coffee.featureThree?.desc}</p>
+                  </div>
                 </div>
-                <div className={styles.featureText}>
-                  <h5>{coffee.featureTwo?.title}</h5>
-                  <p>{coffee.featureTwo?.desc}</p>
-                </div>
-              </div>
-              {}
-              <div className={styles.feature}>
-                <div className={styles.imgFeature}>
-                  <BiCookie />
-                </div>
-                <div className={styles.featureText}>
-                  <h5>{coffee.featureThree?.title}</h5>
-                  <p>{coffee.featureThree?.desc}</p>
-                </div>
-              </div>
-              {}
+                {}
+              </motion.div>
             </div>
           </div>
-        </div>
-      </motion.main>
+        </motion.main>
+      </AnimatePresence>
     );
   }
 }
